@@ -1,0 +1,9 @@
+#Global gitignore
+
+#DS_Store
+.DS_Store
+
+#Vim temp files
+*~
+#All variants of swp files
+.*.sw*
