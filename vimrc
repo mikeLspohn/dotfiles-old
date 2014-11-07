@@ -4,6 +4,11 @@ filetype off    " Required
 " set for powerline view without split
 set laststatus=2
 
+"Locations for swp and backup files
+set backupdir=~/dotfiles/vim/backup//
+set directory=~/dotfiles/vim/swap//
+set undodir=~/dotfiles//vim/undo//
+
 " setup for powerline
 set guifont=Inconsolata\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
@@ -44,6 +49,7 @@ Plugin 'Tpope/vim-surround'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
+Plugin 'skammer/vim-css-color'
 
 " set code folding for javascript (use zc/zo to toggle fold) 
 set foldmethod=syntax
@@ -83,6 +89,10 @@ imap <C-c> <CR><Esc>O
 noremap <F2> :Autoformat<CR><CR>
 "remap : to ; for easier :Commands
 nnoremap ; :
+"Easy motion key mappings
+nmap s <Plug>(easymotion-s)
+map / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 
 " Some settings to enable the theme:
  set number
