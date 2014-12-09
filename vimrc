@@ -23,6 +23,8 @@ let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
+au BufNewFile,BufRead *.ejs set filetype=html
+
 "jslint use vundle
 set rtp+={path}/powerline/bindings/vim
 set rtp+=~/.vim/bundle/vundle/
@@ -39,17 +41,20 @@ Bundle "pangloss/vim-javascript"
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'marijnh/tern_for_vim' 
-Plugin 'terryma/vim-expand-region'
 Plugin 'jelera/vim-javascript-syntax'
-Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'Tpope/vim-surround'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
-Plugin 'skammer/vim-css-color'
+Plugin 'Rykka/colorv.vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'briancollins/vim-jst'
+
+hi link EasymMotionTarget ErrorMsg
+hi link EasyMotionShade comment
 
 " set code folding for javascript (use zc/zo to toggle fold) 
 set foldmethod=syntax
@@ -91,8 +96,8 @@ noremap <F2> :Autoformat<CR><CR>
 nnoremap ; :
 "Easy motion key mappings
 nmap s <Plug>(easymotion-s)
-map / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+map \ <Plug>(easymotion-sn)
+omap \ <Plug>(easymotion-tn)
 
 " Some settings to enable the theme:
  set number
