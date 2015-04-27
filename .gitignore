@@ -7,3 +7,6 @@
 *~
 #All variants of swp files
 .*.sw*
+
+/vim/bundle
+/vim/swap
