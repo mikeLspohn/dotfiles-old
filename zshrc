@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="steeef"
+ZSH_THEME="simple"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -46,7 +46,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew )
+plugins=(git npm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,5 +98,13 @@ PERL_MM_OPT="INSTALL_BASE=/Users/michael/perl5"; export PERL_MM_OPT;
 export NVM_DIR="/Users/michael/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export GEM_PATH="/Users/michael/.rvm/bin" # Add RVM to PATH for scripting
 export GOPATH="$HOME/gocode"
+
+###-tns-completion-start-###
+if [ -f /Users/michael/.tnsrc ]; then 
+    source /Users/michael/.tnsrc 
+fi
+###-tns-completion-end-###
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

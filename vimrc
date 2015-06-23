@@ -58,7 +58,8 @@ Plugin 'mattn/emmet-vim'
 Plugin 'briancollins/vim-jst'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'digitaltoad/vim-jade'
-
+Plugin 'Yggdroot/indentLine'
+Plugin 'othree/html5.vim'
 
 call vundle#end()
 
@@ -74,6 +75,10 @@ let javaScript_fold=1  " JavaScript"
 "CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+"syntastic check with ctrl w
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 " YCM gives you popups and splits by default that some people might not
 " like, so these should tidy it up a bit for you.
