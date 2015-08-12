@@ -1,17 +1,21 @@
 " vim mode
 set nocompatible
 filetype off    " Required
+
 " set for powerline view without split
 set laststatus=2
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tmuxline#enabled = 0
+"let g:tmuxline_powerline_separators=0
 
 "Locations for swp and backup files
-set backupdir=~/dotfiles/vim/backup//
+set backupdir=~/dotfiles/vim/backup/
 set directory=~/dotfiles/vim/swap/
-set undodir=~/dotfiles//vim/undo//
+set undodir=~/dotfiles/vim/undo/
 
 " setup for powerline
-set guifont=Inconsolata\ for\ Powerline:h15
-let g:Powerline_symbols = 'fancy'
+set guifont=Inconsolata-g\ for\ Powerline:h15
+" let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set termencoding=utf-8
 set t_Co=256
@@ -34,8 +38,8 @@ set wildmode=longest,list,full
 set wildmenu
 
 "jslint use vundle
-set rtp+={path}/powerline/bindings/vim
-set rtp+=~/.vim/bundle/Vundle/
+" set rtp+={path}/powerline/bindings/vim
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 
@@ -49,7 +53,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jelera/vim-javascript-syntax'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'Tpope/vim-surround'
 Plugin 'tomtom/tcomment_vim'
@@ -58,8 +62,10 @@ Plugin 'mattn/emmet-vim'
 Plugin 'briancollins/vim-jst'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'digitaltoad/vim-jade'
-Plugin 'Yggdroot/indentLine'
+" Plugin 'Yggdroot/indentLine'
 Plugin 'othree/html5.vim'
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
 
 call vundle#end()
 
@@ -95,10 +101,19 @@ filetype plugin indent on " Required
 :let g:html_indent_inctags = "body,head,tbody"
 :let g:php_indent_inctags = "html,body,head"
 
+"make ctrl-p faster
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
+
 " set tab options
-set expandtab
 set tabstop=4
 set shiftwidth=2
+set expandtab
 set softtabstop=2
 set autoindent
 set smartindent
@@ -127,11 +142,12 @@ nnoremap ; :
 nmap s <Plug>(easymotion-s)
 
 " hotkey to run php in terminal for easy output
-map ,p :! clear && php %<CR>
+" map ,p :! clear && php %<CR>
 
 " Some settings to enable the theme:
 set number
 syntax enable
 set background=dark
-"let g:solarized_termcolors=256  
-colorscheme beekai
+let g:solarized_termcolors=16  
+colorscheme solarized
+" colorscheme beekai
