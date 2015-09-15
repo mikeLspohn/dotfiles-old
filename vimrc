@@ -27,7 +27,6 @@ highlight nonText ctermbg=NONE
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
 " omni completion on
-filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 "ejs syntax set to html
@@ -36,6 +35,9 @@ au BufNewFile,BufRead *.ejs set filetype=html
 "autocomplete filepaths
 set wildmode=longest,list,full
 set wildmenu
+
+"allow backspace in insert mode
+set backspace=indent,eol,start
 
 "jslint use vundle
 " set rtp+={path}/powerline/bindings/vim
@@ -66,8 +68,25 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'othree/html5.vim'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'burnettk/vim-angular'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
+"makes snippets work
+filetype plugin indent on
+
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous = ['<C-p>', '<up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+let g:UltiSnipsSnippetDirectories = ['~/dotfiles/vim/bundle/vim-snippets/UltiSnips/', './UltiSnips']
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardsTrigger = '<s-tab>'
+
+
 
 hi link EasymMotionTarget ErrorMsg
 hi link EasyMotionShade comment
