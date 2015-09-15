@@ -83,7 +83,7 @@ source ~/tmuxinator.zsh
 alias ga='git add'
 alias gc='git commit'
 alias gi='git init'
-alias gst='git status'
+alias g st='git status'
 alias sql='/Applications/MAMP/Library/bin/mysql --host=localhost'
 
 #Make and change into directory

@@ -40,8 +40,7 @@ set wildmenu
 set backspace=indent,eol,start
 
 "jslint use vundle
-" set rtp+={path}/powerline/bindings/vim
-set rtp+=~/.vim/bundle/Vundle.vim/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
 
