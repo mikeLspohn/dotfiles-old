@@ -20,7 +20,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm)
+plugins=(git npm rails)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -40,6 +40,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 alias editzsh='vim ~/dotfiles/zshrc'
+alias editvimrc='vim ~/dotfiles/vimrc'
 alias ga='git add'
 alias gc='git commit'
 alias gi='git init'
@@ -69,3 +70,4 @@ export GEM_PATH="/Users/michael/.rvm/bin" # Add RVM to PATH for scripting
 export GOPATH="$HOME/gocode"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
+export PATH=$PATH:$HOME/code
