@@ -54,22 +54,19 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jelera/vim-javascript-syntax'
-" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'Tpope/vim-surround'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'briancollins/vim-jst'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'digitaltoad/vim-jade'
-" Plugin 'Yggdroot/indentLine'
 Plugin 'othree/html5.vim'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'burnettk/vim-angular'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'tpope/vim-rails'
 
 call vundle#end()
 "makes snippets work
@@ -84,7 +81,6 @@ let g:UltiSnipsSnippetDirectories = ['~/dotfiles/vim/bundle/vim-snippets/UltiSni
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardsTrigger = '<s-tab>'
-
 
 
 hi link EasymMotionTarget ErrorMsg
