@@ -20,7 +20,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm)
+plugins=(git rails npm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -33,6 +33,11 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+#####################################
+#       Custom Keybindings          #
+#####################################
+bindkey -v #vim mode!
 
 #####################################
 #        ALIAS THAT SHIT            #
@@ -56,7 +61,6 @@ function mkcd() {
     cd $1
 }
 
-
 #######################################
 #   PATH AND ENVIRONMENT VARIABLES    #
 #######################################
@@ -70,3 +74,4 @@ export GEM_PATH="/Users/michael/.rvm/bin" # Add RVM to PATH for scripting
 export GOPATH="$HOME/gocode"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
+export SSL_CERT_FILE="/usr/local/etc/openssl/cert.pem"

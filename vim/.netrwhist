@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/michael/code/Work/balanced-comp/app/views/balanced_results'
+let g:netrw_dirhist_2='/Users/michael/code/Work/balanced-comp/app/views/scenarios'
+let g:netrw_dirhist_3='/Users/michael/code/Work/balanced-comp/spec/karma/config'
+let g:netrw_dirhist_4='/Users/michael/code/Work/balanced-comp/features/step_definitions/comp/reports'
+let g:netrw_dirhist_5='/Users/michael/code/Work/balanced-comp/features/results/employees/performance_reviews'
