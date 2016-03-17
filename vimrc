@@ -1,30 +1,41 @@
-" vim mode
+"
+" Author: Michael Spohn
+" File: .vimrc 
+" Github: https://github.com/mikeLspohn/dotfiles/vimrc
+
+" No need for vi compatibility
 set nocompatible
-filetype off    " Required
+filetype off    " Required for vundle to run
 
-" set for powerline view without split
-set laststatus=2
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tmuxline#enabled = 0
-"let g:tmuxline_powerline_separators=0
+" Airline and tmuxline config
+set laststatus=2                               " Show filename in statusbar
+let g:airline_powerline_fonts=1                " Enable airline fonts 
+let g:airline#extensions#tmuxline#enabled = 0  " tmuxline extensions
 
-"Locations for swp and backup files
+" Locations for swp and backup files
+" TODO: Make sure these are created is this is first time using this vimrc
 set backupdir=~/dotfiles/vim/backup/
 set directory=~/dotfiles/vim/swap/
 set undodir=~/dotfiles/vim/undo/
 
-" setup for powerline
+" Patched font
 set guifont=Inconsolata-g\ for\ Powerline:h15
-" let g:Powerline_symbols = 'fancy'
+
+" encoding
 set encoding=utf-8
 set termencoding=utf-8
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
+
 "Match tmux screen (can use xterm but tmux.conf needs changed if so)
 set term=screen-256color
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+
+" highlight Normal ctermbg=NONE
+" highlight nonText ctermbg=NONE
+set incsearch   " Find as you type search
+set hlsearch    " Highlight search terms
+set ignorecase  " Case insensitive search
+set smartcase   " Case sensitive when upper case characters are present
 
 " omni completion on
 set omnifunc=syntaxcomplete#Complete
@@ -39,7 +50,6 @@ set wildmenu
 "allow backspace in insert mode
 set backspace=indent,eol,start
 
-"jslint use vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
@@ -52,7 +62,6 @@ Plugin 'Lokaltog/vim-easymotion'
 Bundle "pangloss/vim-javascript"
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'tomtom/tcomment_vim'
@@ -65,6 +74,10 @@ Plugin 'othree/html5.vim'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'tpope/vim-rails'
+Plugin 'heartsentwined/vim-emblem'
+Plugin 'tpope/vim-fugitive'
+Plugin 'janko-m/vim-test'
+Plugin 'NLKNguyen/papercolor-theme'
 
 call vundle#end()
 filetype plugin indent on
@@ -78,9 +91,9 @@ hi link EasymMotionTarget ErrorMsg
 hi link EasyMotionShade comment
 
 " set code folding for javascript (use zc/zo to toggle fold) 
-set foldmethod=syntax
-set foldlevelstart=1
-let javaScript_fold=1  " JavaScript"
+" set foldmethod=syntax
+" set foldlevelstart=1
+" let javaScript_fold=1  " JavaScript"
 
 
 "CtrlP
@@ -115,6 +128,11 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore "**/*.pyc"
       \ -g ""'
 
+"nnoremap K :grep! '\b<C-R><C-W>\b'<CR>:cw<CR>
+
+" Let :grep use ack instead
+set grepprg=ack
+
 " set tab options
 set tabstop=4
 set shiftwidth=2
@@ -131,14 +149,10 @@ nnoremap <F3> :NumbersToggle<CR>
 " set remap esc to jk 
 :inoremap jk  <esc>
 
-" toggle nerdtree with ctrl-e
 nnoremap <C-e> ::NERDTreeToggle<cr>
 
 " ctrl-c split lines between braces
 imap <C-c> <CR><Esc>O
-
-"js-beautify (html,css also) f2
-noremap <F2> :Autoformat<CR><CR>
 
 "remap : to ; for easier :Commands
 nnoremap ; :
@@ -146,13 +160,16 @@ nnoremap ; :
 "Easy motion key mappings
 nmap s <Plug>(easymotion-s)
 
-" hotkey to run php in terminal for easy output
-" map ,p :! clear && php %<CR>
+"Vim-test key mappings
+nmap <silent> ,t :TestNearest<CR>
+nmap <silent> ,T :TestFile<CR>
 
 " Some settings to enable the theme:
 set number
 syntax enable
-set background=dark
-let g:solarized_termcolors=16  
-colorscheme solarized
-" colorscheme beekai
+" set background=dark
+" let g:solarized_termcolors=16  
+" colorscheme solarized
+set background=light
+colorscheme PaperColor
+
