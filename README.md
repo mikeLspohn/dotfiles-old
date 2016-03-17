@@ -1,6 +1,7 @@
 # Personal Dotfiles
 
-These are my personal dotfiles
+These are my personal dotfiles.
+
 Inspired by many, used by one
 
 ## Installation
