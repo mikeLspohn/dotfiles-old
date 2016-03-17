@@ -165,6 +165,8 @@ filetype plugin indent on
   nmap <silent> ,t :TestNearest<CR>
   nmap <silent> ,T :TestFile<CR>
 
+  " remove search hl with backspace
+  nmap <silent> <BS> :nohlsearch<CR>
 
 " Theme settings
   set number
