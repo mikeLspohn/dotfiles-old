@@ -2,7 +2,7 @@
 
 These are my personal dotfiles.
 
-Inspired by many, used by one
+> Inspired by many, used by one
 
 ## Installation
 **_Install script doesn't install everything currently and paths aren't dynamic. Use at your own risk ;)_**
