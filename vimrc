@@ -48,6 +48,10 @@
   
   "allow backspace in insert mode
   set backspace=indent,eol,start
+
+  " Something weird is going on when I switch from insert to normal mode.
+  " TODO: Figure out what's wrong and fix it without the hack
+  set whichwrap=
   
   set rtp+=~/.vim/bundle/vundle/
 "}}
