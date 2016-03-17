@@ -1,11 +1,8 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh # Path to installation
+ZSH_THEME="simple"          # Found in ~/.oh-my-zsh/themes
 
-# Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="simple"
-
- export UPDATE_ZSH_DAYS=1
- export TERM=xterm-256color
+export UPDATE_ZSH_DAYS=1   # Ask for update everyday
+export TERM=xterm-256color # Use 256color for iTerm2
 
 # Uncomment the following line to disable auto-setting terminal title.
  DISABLE_AUTO_TITLE="true"
@@ -13,26 +10,17 @@ ZSH_THEME="simple"
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails npm)
+plugins=(git rails npm) # Plugins found in ~/.oh-my-zsh/plugins/
 
 source $ZSH/oh-my-zsh.sh
 
-# Preferred editor for local and remote sessions
+# Use vim for local and ssh sessions
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
    export EDITOR='vim'
  fi
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 #####################################
 #       Custom Keybindings          #
@@ -70,6 +58,7 @@ function mkcd() {
 export NVM_DIR="/Users/michael/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  
 
+# TODO: Probably needs cleaned up
 export PATH="/usr/local/bin:/usr/Cellar/bin/git:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/michael/bin:/Users/michael/bin"
 export GEM_PATH="/Users/michael/.rvm/bin" # Add RVM to PATH for scripting
 export GOROOT="usr/local/go"
@@ -77,7 +66,6 @@ export GOPATH="$HOME/gocode"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
 export SSL_CERT_FILE="/usr/local/etc/openssl/cert.pem"
-
 
 
 #######################################
@@ -91,6 +79,6 @@ nvm_switch_if_needed() {
   nvm use
 }
 
+# Call script when changing directories and on terminal ready
 nvm_switch_if_needed
-# Call script when changing directories as well
 cd() {builtin cd "$@"; time nvm_switch_if_needed; }
