@@ -49,7 +49,7 @@
   "allow backspace in insert mode
   set backspace=indent,eol,start
   
-  set rtp+=~/.vim/bundle/vundle/
+  set rtp+=~/.vim/bundle/Vundle.vim
 "}}
   
 " Vundle{{

@@ -48,7 +48,7 @@ alias editvimrc='vim ~/dotfiles/vimrc'
 alias ga='git add'
 alias gc='git commit'
 alias gi='git init'
-alias sql='/Applications/MAMP/Library/bin/mysql --host=localhost'
+alias gst='git status'
 alias watch-git-status="watch -n1 -c git -c color.ui=always status"
 alias apply-gitignore='git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached'
 
@@ -70,27 +70,3 @@ function mkcd() {
 export NVM_DIR="/Users/michael/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  
 
-export PATH="/usr/local/bin:/usr/Cellar/bin/git:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/michael/bin:/Users/michael/bin"
-export GEM_PATH="/Users/michael/.rvm/bin" # Add RVM to PATH for scripting
-export GOROOT="usr/local/go"
-export GOPATH="$HOME/gocode"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
-export SSL_CERT_FILE="/usr/local/etc/openssl/cert.pem"
-
-
-
-#######################################
-#    LOAD NODE VERSION FROM NVMRC     #
-#######################################
-nvm_switch_if_needed() {
-  local NVM_RC_VERSION
-  local REAL_VERSION
-  read NVM_RC_VERSION < $(nvm_find_nvmrc)
-  REAL_VERSION=$(nvm_version $NVM_RC_VERSION)
-  nvm use
-}
-
-nvm_switch_if_needed
-# Call script when changing directories as well
-cd() {builtin cd "$@"; time nvm_switch_if_needed; }
