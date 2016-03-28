@@ -39,10 +39,10 @@
   " omni completion on
   set omnifunc=syntaxcomplete#Complete
   
-  "ejs syntax set to html
+  " ejs syntax set to html
   au BufNewFile,BufRead *.ejs set filetype=html
   
-  "autocomplete filepaths
+  " autocomplete filepaths
   set wildmode=longest,list,full
   set wildmenu
   
@@ -93,11 +93,14 @@
     
     " Colors/UI
     Plugin 'NLKNguyen/papercolor-theme'
-    "
+    
     " Airline/TMUX
     Plugin 'bling/vim-airline'
     Plugin 'edkolev/tmuxline.vim'
     Plugin 'christoomey/vim-tmux-navigator'
+
+    " Code Analysis/Linters
+    Plugin  'wfleming/vim-codeclimate'
   
   call vundle#end()
   filetype plugin indent on
@@ -192,3 +195,4 @@
 " let g:solarized_termcolors=16  
 " colorscheme solarized
 
+hi Search cterm=NONE ctermfg=grey ctermbg=blue
