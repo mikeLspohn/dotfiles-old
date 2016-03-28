@@ -37,6 +37,7 @@ install_zsh () {
 if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     # Clone my oh-my-zsh repository from GitHub only if it isn't already present
     if [[ ! -d $dir/oh-my-zsh/ ]]; then
+        echo "Installing oh-my-zh"
         git clone http://github.com/robbyrussell/oh-my-zsh.git
         cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
     fi
