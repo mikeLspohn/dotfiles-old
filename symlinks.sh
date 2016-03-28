@@ -20,8 +20,9 @@ cd $dir
 echo "done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
+echo "Moving $files from ~/ to $olddir"
+
 for file in $files; do
-    echo "Moving $file from ~ to $olddir"
     mv ~/.$file ~/dotfiles_old/
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
@@ -49,6 +50,7 @@ else
     # If the platform is OS X, tell the user to install zsh :)
     elif [[ $platform == 'Darwin' ]]; then
         echo "Please install zsh, then re-run this script!"
+        echo "I recommend using Homebrew for OSX package management."
         exit
     fi
 fi
