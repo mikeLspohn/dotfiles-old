@@ -40,6 +40,8 @@ if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
         echo "Setting ZSH as default shell!"
         chsh -s $(which zsh)
+    else
+      echo "ZSH is already set as your default shell."
     fi
 else
     # If zsh isn't installed, get the platform of the current machine
