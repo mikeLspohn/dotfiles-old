@@ -10,3 +10,8 @@
 
 /vim/bundle
 /vim/swap
+
+# Dont' need these in repo
+oh-my-zsh
+snapshot
+vim/bundle
