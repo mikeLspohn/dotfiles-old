@@ -6,7 +6,7 @@ h
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc tmux.conf vimrc vim zshrc oh-my-zsh private scrotwm.conf Xresources"    # list of files/folders to symlink in homedir
+files="bashrc tmux.conf vimrc vim zshrc oh-my-zsh"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -22,7 +22,7 @@ echo "done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
+    echo "Moving $file from ~ to $olddir"
     mv ~/.$file ~/dotfiles_old/
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
@@ -37,6 +37,7 @@ if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     fi
     # Set the default shell to zsh if it isn't currently set to zsh
     if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
+        echo "Setting ZSH as default shell!"
         chsh -s $(which zsh)
     fi
 else
