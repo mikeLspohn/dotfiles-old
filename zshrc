@@ -59,13 +59,12 @@ export NVM_DIR="/Users/michael/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  
 
 # TODO: Probably needs cleaned up
-export PATH="/usr/local/bin:/usr/Cellar/bin/git:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/michael/bin:/Users/michael/bin"
-export GEM_PATH="/Users/michael/.rvm/bin" # Add RVM to PATH for scripting
-export GOROOT="usr/local/go"
+# User stuff, go bin path, rvm path, android platform tools path
+export GOROOT="/usr/local/go" #go install from brew I think?
 export GOPATH="$HOME/gocode"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
-export SSL_CERT_FILE="/usr/local/etc/openssl/cert.pem"
+export PATH="/usr/local/bin:/usr/Cellar/bin/git:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/michael/bin:/Users/michael/bin:$GOROOT/bin:$PATH:$HOME/.rvm/bin/$PATH:$HOME/Library/Android/sdk/platform-tools"
+export GEM_PATH="/Users/michael/.rvm/bin" # Add RVM to PATH for scripting
+export SSL_CERT_FILE="/usr/local/etc/openssl/cert.pem" #not sure if I need this?
 
 
 #######################################
@@ -82,3 +81,5 @@ nvm_switch_if_needed() {
 # Call script when changing directories and on terminal ready
 nvm_switch_if_needed
 cd() {builtin cd "$@"; time nvm_switch_if_needed; }
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

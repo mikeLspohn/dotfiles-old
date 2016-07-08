@@ -77,6 +77,10 @@
     Plugin 'othree/html5.vim'
     Plugin 'Chiel92/vim-autoformat'
     Plugin 'heartsentwined/vim-emblem'
+    Plugin 'leafgarland/typescript-vim'
+    Plugin 'isRuslan/vim-es6'
+    Plugin 'fatih/vim-go'
+    Plugin 'mxw/vim-jsx'
     
     " Utilities
     Plugin 'mattn/emmet-vim'
@@ -84,6 +88,7 @@
     Plugin 'janko-m/vim-test'
     Bundle "myusuf3/numbers.vim"
     Plugin 'Raimondi/delimitMate'
+    Plugin 'JamshedVesuna/vim-markdown-preview'
   
     " Git
     Plugin 'tpope/vim-fugitive'
@@ -93,6 +98,7 @@
     
     " Colors/UI
     Plugin 'NLKNguyen/papercolor-theme'
+    Plugin 'gorodinskiy/vim-coloresque'
     
     " Airline/TMUX
     Plugin 'bling/vim-airline'
@@ -100,7 +106,13 @@
     Plugin 'christoomey/vim-tmux-navigator'
 
     " Code Analysis/Linters
-    Plugin  'wfleming/vim-codeclimate'
+    Plugin 'wfleming/vim-codeclimate'
+    " Plugin 'wookiehangover/jshint.vim'
+
+    " Notes
+    Plugin 'vimwiki/vimwiki'
+    Plugin 'xolox/vim-notes'
+    Plugin 'xolox/vim-misc'
   
   call vundle#end()
   filetype plugin indent on
@@ -112,6 +124,22 @@
   let g:ycm_key_list_select_completion = ['<C-n>', '<Down>'] " ctrl+n goes down the list
   let g:ycm_key_list_previous = ['<C-p>', '<up>']            " ctrl+p goes up the list
   let g:SuperTabDefaultCompletionType = '<C-n>'              " ctrl+n without ycm
+
+  " Markdown preview
+  let vim_markdown_preview_hotkey='<C-m>'
+  let vim_markdown_preview_browser='Google Chrome'
+  let vim_markdown_preview_github=1
+
+  " Javascript linting
+  set statusline+=%warningmsg#
+  set statusline+=%{SyntasticStatusLineFlag()}
+  set statusline+=%*
+
+  let g:syntastic_check_on_open=0
+  let g:syntastic_javascript_checkers = ['eslint']
+  let g:syntastic_check_on_open = 0
+  let g:syntastic_auto_loc_list = 0
+  let g:syntastic_check_on_wq = 1
   
   " Easy motion highlight colors
   hi link EasymMotionTarget ErrorMsg
@@ -158,6 +186,9 @@
   set smartindent
 "}}
 
+  " go formatting
+  au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+
 
 " key remappings{{
   "toggle relative numbers with F3
@@ -186,13 +217,11 @@
 " Theme settings{{
   set number
   syntax enable
-  set background=light
-  colorscheme PaperColor
+  set background=dark
+  let g:solarized_termcolors=16
+  colorscheme solarized
+  " set background=light
+  " colorscheme PaperColor
 "}}
 
-" I always end up back at solarized, so keep this here
-" set background=dark
-" let g:solarized_termcolors=16  
-" colorscheme solarized
-
-hi Search cterm=NONE ctermfg=grey ctermbg=blue
+" hi Search cterm=NONE ctermfg=grey ctermbg=blue
