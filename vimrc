@@ -81,6 +81,8 @@
     Plugin 'isRuslan/vim-es6'
     Plugin 'fatih/vim-go'
     Plugin 'mxw/vim-jsx'
+    Plugin 'elixir-lang/vim-elixir'
+    Plugin 'slashmili/alchemist.vim'
     
     " Utilities
     Plugin 'mattn/emmet-vim'
@@ -89,6 +91,18 @@
     Bundle "myusuf3/numbers.vim"
     Plugin 'Raimondi/delimitMate'
     Plugin 'JamshedVesuna/vim-markdown-preview'
+    Plugin 'diepm/vim-rest-console'
+    Plugin 'benmills/vimux'
+    Plugin 'thoughtbot/vim-rspec'
+    Plugin 'tpope/vim-dispatch'
+    Plugin 'rizzatti/dash.vim'
+
+    " Snippets
+    Plugin 'justinj/vim-react-snippets'
+    Plugin 'MarcWeber/vim-addon-mw-utils'
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'garbas/vim-snipmate'
+    Plugin 'SirVer/ultisnips'
   
     " Git
     Plugin 'tpope/vim-fugitive'
@@ -135,9 +149,8 @@
   set statusline+=%{SyntasticStatusLineFlag()}
   set statusline+=%*
 
-  let g:syntastic_check_on_open=0
-  let g:syntastic_javascript_checkers = ['eslint']
-  let g:syntastic_check_on_open = 0
+  let g:syntastic_javascript_checkers = ['standard', 'eslint']
+  let g:syntastic_check_on_open = 1
   let g:syntastic_auto_loc_list = 0
   let g:syntastic_check_on_wq = 1
   
@@ -148,10 +161,15 @@
   "CtrlP
   let g:ctrlp_map = '<c-p>'
   let g:ctrlp_cmd = 'CtrlP'
+
+  "Ultisnips
+  let g:UltiSnipsExpandTrigger="<c-t>"
+  let g:UltiSnipsJumpForwardTrigger="<c-f>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
   
-  "syntastic check with ctrl w
+  "syntastic check with ctrl y
   let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-  nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+  nnoremap <C-y> :SyntasticCheck<CR> :SyntasticToggleMode<CR>
   
   " YCM gives you popups and splits by default that some people might not
   " like, so these should tidy it up a bit for you.
@@ -162,6 +180,7 @@
   " Custom indentations for specified filetypes
   :let g:html_indent_inctags = "body,head,tbody"
   :let g:php_indent_inctags = "html,body,head"
+  let g:jsx_ext_required = 0
   
   "make ctrl-p faster
   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
@@ -172,6 +191,14 @@
         \ --ignore "**/*.pyc"
         \ -g ""'
   
+  " vim-test
+  let test#strategy = "vimux"
+
+  " vim-rspec (using vim-dispatch)
+  let g:rspec_command = "Dispatch rspec {spec}"
+  map <Leader>T :call RunCurrentSpecFile()<CR>
+  map <Leader>t :call RunNearestSpec()<CR>
+
   " Let :grep use ack instead so it can be supa fast
   set grepprg=ack
 "}}

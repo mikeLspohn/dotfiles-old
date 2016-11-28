@@ -11,7 +11,7 @@ export TERM=xterm-256color # Use 256color for iTerm2
 ENABLE_CORRECTION="true"
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails npm) # Plugins found in ~/.oh-my-zsh/plugins/
+plugins=(git rails npm bundler) # Plugins found in ~/.oh-my-zsh/plugins/
 
 source $ZSH/oh-my-zsh.sh
 
@@ -39,6 +39,7 @@ alias gi='git init'
 alias sql='/Applications/MAMP/Library/bin/mysql --host=localhost'
 alias watch-git-status="watch -n1 -c git -c color.ui=always status"
 alias apply-gitignore='git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached'
+alias rspec='nocorrect rspec' # messing with vim-test shit
 
 ####################################
 #         CUSTOM COMMANDS          #
@@ -64,7 +65,7 @@ export GOROOT="/usr/local/go" #go install from brew I think?
 export GOPATH="$HOME/gocode"
 export PATH="/usr/local/bin:/usr/Cellar/bin/git:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/michael/bin:/Users/michael/bin:$GOROOT/bin:$PATH:$HOME/.rvm/bin/$PATH:$HOME/Library/Android/sdk/platform-tools"
 export GEM_PATH="/Users/michael/.rvm/bin" # Add RVM to PATH for scripting
-export SSL_CERT_FILE="/usr/local/etc/openssl/cert.pem" #not sure if I need this?
+# export SSL_CERT_FILE="/usr/local/etc/openssl/cert.pem" #not sure if I need this?
 
 
 #######################################
@@ -83,3 +84,5 @@ nvm_switch_if_needed
 cd() {builtin cd "$@"; time nvm_switch_if_needed; }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
