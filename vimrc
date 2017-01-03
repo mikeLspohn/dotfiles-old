@@ -27,7 +27,8 @@
   set fillchars+=stl:\ ,stlnc:\
   
   "Match tmux screen (can use xterm but tmux.conf needs changed if so)
-  set term=screen-256color
+  " set term=screen-256color
+  set termguicolors
   
   " highlight Normal ctermbg=NONE
   " highlight nonText ctermbg=NONE
@@ -68,6 +69,9 @@
     Plugin 'Lokaltog/vim-easymotion'
     Plugin 'kien/ctrlp.vim'
   
+    " git
+    Plugin 'mhinz/vim-signify'
+
     " Syntax/Formatting
     Plugin 'scrooloose/syntastic'
     Plugin 'jelera/vim-javascript-syntax'
@@ -83,6 +87,7 @@
     Plugin 'mxw/vim-jsx'
     Plugin 'elixir-lang/vim-elixir'
     Plugin 'slashmili/alchemist.vim'
+    Plugin 'elmcast/elm-vim'
     
     " Utilities
     Plugin 'mattn/emmet-vim'
@@ -113,6 +118,7 @@
     " Colors/UI
     Plugin 'NLKNguyen/papercolor-theme'
     Plugin 'gorodinskiy/vim-coloresque'
+    Plugin 'zanglg/nova.vim'
     
     " Airline/TMUX
     Plugin 'bling/vim-airline'
@@ -215,6 +221,9 @@
 
   " go formatting
   au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+  
+  " elm formatting
+  au BufNewFile,BufRead *.elm setlocal noet ts=4 sw=4 sts=4
 
 
 " key remappings{{
@@ -245,8 +254,9 @@
   set number
   syntax enable
   set background=dark
-  let g:solarized_termcolors=16
-  colorscheme solarized
+  colorscheme nova
+  " let g:solarized_termcolors=16
+  " colorscheme solarized
   " set background=light
   " colorscheme PaperColor
 "}}

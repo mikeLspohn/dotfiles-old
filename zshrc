@@ -1,5 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh # Path to installation
-ZSH_THEME="simple"          # Found in ~/.oh-my-zsh/themes
+ZSH_THEME="gitster"          # Found in ~/.oh-my-zsh/themes
 
 export UPDATE_ZSH_DAYS=1   # Ask for update everyday
 export TERM=xterm-256color # Use 256color for iTerm2
@@ -11,7 +11,7 @@ export TERM=xterm-256color # Use 256color for iTerm2
 ENABLE_CORRECTION="true"
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails npm bundler) # Plugins found in ~/.oh-my-zsh/plugins/
+plugins=(git rails npm bundler warhol) # Plugins found in ~/.oh-my-zsh/plugins/
 
 source $ZSH/oh-my-zsh.sh
 
