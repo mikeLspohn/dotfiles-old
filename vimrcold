@@ -1,0 +1,119 @@
+"
+" Author: Michael Spohn
+" File: vimrc 
+" Github: https://github.com/mikeLspohn/dotfiles/vimrc
+
+set nocompatible
+filetype off    " Required for vundle to run
+  
+" Airline and tmuxline config
+" set laststatus=2                               " Show filename in statusbar
+" let g:airline_powerline_fonts=1                " Enable airline fonts 
+" let g:airline#extensions#tmuxline#enabled = 0  " tmuxline extensions
+" set guifont=Inconsolata-g\ for\ Powerline:h15  " Patched font for airline
+  
+set incsearch   " Find as you type search
+set hlsearch    " Highlight search terms
+set ignorecase  " Case insensitive search
+set smartcase   " Case sensitive when upper case characters are present
+  
+set wildmode=longest,list,full
+set wildmenu
+  
+set backspace=indent,eol,start
+set term=xterm-256color
+
+
+
+"
+" VUNDLE
+"
+set rtp+=~/.vim/bundle/vundle/
+call vundle#begin()
+  
+" Required by vundle
+Plugin 'gmarik/vundle' 
+
+" Navigation
+Plugin 'scrooloose/nerdtree'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'kien/ctrlp.vim'
+Bundle "myusuf3/numbers.vim"
+
+" Rails/Ruby
+Plugin 'tpope/vim-rails'
+
+" Colors/UI
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'gorodinskiy/vim-coloresque'
+Plugin 'zanglg/nova.vim'
+
+  
+call vundle#end()
+"
+" END VUNDLE
+"
+
+
+
+filetype plugin indent on
+
+" Easy motion highlight colors
+hi link EasymMotionTarget ErrorMsg
+hi link EasyMotionShade comment
+  
+"CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+"make ctrl-p faster
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
+  
+" Let :grep use ack instead so it can be supa fast
+set grepprg=ack
+
+
+" set tab options
+set tabstop=4
+set shiftwidth=2
+set expandtab
+set softtabstop=2
+set autoindent
+set smartindent
+
+" elm formatting
+au BufNewFile,BufRead *.elm setlocal noet ts=4 sw=4 sts=4
+
+
+" key remappings
+" toggle relative numbers with F3
+nnoremap <F3> :NumbersToggle<CR>
+  
+:inoremap jk  <esc> 
+nnoremap <C-e> ::NERDTreeToggle<cr>
+  
+" ctrl-c split lines between braces
+imap <C-c> <CR><Esc>O
+  
+"remap : to ; for easier :Commands
+ nnoremap ; :
+  
+"Easy motion key mappings
+nmap s <Plug>(easymotion-s)
+  
+
+" remove search hl with backspace
+nmap <silent> <BS> :nohlsearch<CR>
+
+" Theme settings
+set number
+syntax enable
+set background=dark
+colorscheme solarized
+" colorscheme PaperColor
